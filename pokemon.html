@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>PokemonBattle</title>
+	    <link rel="icon" type="Pokebola/png" href="https://cdn.pixabay.com/photo/2016/09/29/12/55/pokemon-1702772__340.png">
+	    <link href="https://fonts.googleapis.com/css?family=Exo+2|Orbitron|Sniglet|Varela+Round&display=swap" rel="stylesheet">
+	    <link rel="stylesheet" type="text/css" href="./source/css/estilos.css">
+	</head>
+	<body>
+
+		<header class="header">
+			<img src="./source/images/upDown.png" class="down upDown" id="down">
+			<a href="https://fontmeme.com/es/fuente-pokemon/">
+				<img src="https://fontmeme.com/permalink/200102/d5d66e666f89055c838378429dc8ab7c.png" alt="fuente-pokemon" width="450px">
+			</a>
+		</header>
+
+		<section class="container__pokemonInicial hide" id="pokemonInicial">
+			<h4 class="pokemonInicial__text">¿A que Pokemon inicial habrías elegido tú?</h4>
+			<img alt="pokemonStarters" src="https://ya-webdesign.com/transparent250_/pokemon-starters-png.png" width="150">
+			<div class="pokemonInicial--scroll">
+				<h5 class="pokemonInicial--scroll-h5">Charmander</h5>
+				<ul class="pokemonInicial__text">
+					<li>Juan Gaybre</li>
+				</ul>
+				<h5 class="pokemonInicial--scroll-h5">Bulbasaur</h5>
+				<ul class="pokemonInicial__text">
+					<li>Danilo Toro</li>
+				</ul>
+				<h5 class="pokemonInicial--scroll-h5">Squirtle</h5>
+				<ul class="pokemonInicial__text">
+					<li></li>
+				</ul>
+				<h5 class="pokemonInicial--scroll-h5">Pikachu</h5>
+				<ul class="pokemonInicial__text">
+					<li></li>
+				</ul>
+			</div>
+			<p class="pokemonInicial__text"><small>¡Agrega tu nombre a una lista! <a href="https://github.com/Gaybre/PokemonBattle">Hazle Fork al repositorio</a> y envíame tu Pull requests.</small></p>
+			<img src="./source/images/upDown.png" class="up upDown" id="up">
+		</section>
+
+		<div class="timer" id="container__timer1">
+			<p>Cargando...</p>
+			<img class="imgcharging" alt="loadinn_Gif" src="https://media.giphy.com/media/WBpJbqS9hFsic/giphy.gif">
+		</div>
+
+		<div class="container" id="container__start">
+			<h2>Para poder jugar deberás...</h2>
+			<section class="container__start--instructions">
+				<ol>
+					<li class="li">Identificarte con un nombre de jugador</li>
+					<li class="li">Seleccionar alguno de los pokemon disponibles</li>
+					<li class="li">Espera a que inicie el juego y gana la batalla</li>
+				</ol>
+				<img alt="pokemonStarters" class="starterimg" src="https://ya-webdesign.com/transparent250_/pokemon-starters-png.png">
+			</section>
+			<p>El combate es 1 vs 1, en la parte superior se mostrará la sección que indique el turno de cada jugador</p>
+			<button class="btn" id="btnStart">Empezar</button>
+			<hr class ="line">
+			<p class="container__start--footer">
+				<small>
+					Al final no olvides visitar el repositorio de este proyecto
+					<img src="https://cdn.pixabay.com/photo/2016/07/21/00/38/pokemon-1531648__340.png" width="15" class="pulse">
+				</small>
+			</p>
+		</div>
+
+		<div class="container" id="container__turno">
+			<section class="container__turno--player" id="p1">
+				<h3>Player 1</h3>
+				<p class="displayText" id="namePlayer1"></p>
+			</section>
+			<h2 class="container__turno--textTurno">
+				Turno
+			</h2>
+			<section class="container__turno--player" id="p2">
+				<h3>Player 2</h3>
+				<p class="displayText" id="namePlayer2"></p>
+			</section>
+		</div>
+
+		<div class="container" id="container__choose-playerName">
+			<h2>
+				Elige tu nombre de Maestro Pokemón
+			</h2>
+		    <div class="container__playerName">
+		      	<img src="https://vignette.wikia.nocookie.net/bohaterowie/images/2/2f/Ash_anime.png/revision/latest/top-crop/width/360/height/450?cb=20190703073831&path-prefix=pl" alt="Maestro Pokemon" width="200">
+				<form id="formName" class="form">
+					<input type="text" placeholder="Juan Gaybre" class="txt" id="txtPlayerName">
+				</form>
+				<button class="btn" id="btnPlayerName">Aceptar</button>
+		    </div>
+		</div>
+
+		<div class="container" id="container__choose-pokemon">
+			<h2>
+				Elige a tu compañero de batalla
+			</h2>
+			<div class="container__choosingPokemon">
+		  		<section class="container__choosingPokemon--listaPokemon" id="listaPokemonA">
+		  			<h3>
+		  				Pokemones disponibles
+		  			</h3>
+		  			<p class="displayText" id="txtCargando">Cargando...</p>
+		  			<div class="listaPokemonA__scroll">
+		  				<img id="gifpokemon" class="listaPokemonA__loadingList" alt="QuienEsEstePokemon" src="https://media.giphy.com/media/DRfu7BT8ZK1uo/giphy.gif">
+		  				<p id="pokemonList" class="hide" ondragover="allowDrop(event)"></p>
+		  			</div>
+		  		</section>
+		     	<section class="container__choosingPokemon--listaPokemon" id="listaPokemonB">
+		  			<h3>
+		  				¡Atrapa tu Pokemón!
+		  			</h3>
+		        	<img src="https://cdn.pixabay.com/photo/2019/11/18/15/46/pokemon-4635112__340.png" alt="Pokebola" id="imgPokebola" class="listaPokemonB__imgPokebola">
+		  			<p>
+						Ingresa el ID o arrastra un Pokemon de la lista. Presiona Aceptar solo si estas listo para inliciar la batalla
+					</p>
+					<form id="formID" class="form">
+		  				<input type="number" placeholder="ID" class="txt" id="txtPokemonSelected" ondrop="drop(event)"> 
+					</form>
+		  			<button class="btn" id="btnPokemonName">Aceptar</button>
+		  		</section>
+		    </div>
+		</div>
+
+	    <div class="container hide" id="container__dito">
+	    	<h3>Elejiste a dito !!</h3>
+	    	<img id="imgDito">
+	    	<p>Has elejido a dito, selecciona el ID del pokemon en que quieres usar la habilidad: <strong>Transformación</strong>.</p>
+	    	<button class="btn" id="btnDito">Aceptar</button>
+	    </div>
+
+		<div class="timer hide" id="container__timer2">
+			<p id="timer">Que gane el mejor!!</p>
+			<img class="imgcharging" alt="loading_Gif" src="https://media.giphy.com/media/WBpJbqS9hFsic/giphy.gif">
+		</div>
+
+		<div class="container" id="container__pokemonInfo--battle">
+			<div class="container__pokemonInfo">
+				<div class="container__pokemonInfo--info">
+					<div class="pokemonInfo--info__datosPokemon" id="datosPokemon1">
+						<p>Nombre:</p>
+						<p>Tipo:</p>
+						<p>Nivel:</p>
+						<p>Vida:</p>
+					</div>
+					<div class="pokemonInfo--info__pokemonElegido" id="pokemonElegido1">
+						<p class="displayText" id="pokemonName1"></p>
+						<p class="displayText" id="pokemonType1"></p>
+						<p class="displayText" id="pokemonLevel1"></p>
+						<p class="displayText" id="pokemonLife1"></p>
+					</div>
+				</div>
+				<div class="container__pokemonInfo--info">
+					<div class="pokemonInfo--info__datosPokemon" id="datosPokemon2">
+						<p>Nombre:</p>
+						<p>Tipo:</p>
+						<p>Nivel:</p>
+						<p>Vida:</p>
+					</div>
+					<div class="pokemonInfo--info__pokemonElegido" id="pokemonElegido2">
+						<p class="displayText" id="pokemonName2"></p>
+						<p class="displayText" id="pokemonType2"></p>
+						<p class="displayText" id="pokemonLevel2"></p>
+						<p class="displayText" id="pokemonLife2"></p>
+					</div>
+				</div>
+			</div>
+
+			<hr class ="line">
+			<button class="btn pulse hide" id="playAgain">¡Jugar otra vez!</button>
+			<hr class ="line">
+
+			<div class="container__battle">
+				<div class="container__battle--battle">
+					<div class="container__battle--battleButtons" id="battleButtonsA">
+						<input type="button" class="btnAtaque" id="ataque1a" />
+						<input type="button" class="btnAtaque" id="ataque2a" />
+						<input type="button" class="btnAtaque" id="ataque3a" />
+					</div>
+
+					<div class="battleMap" id="battleMapID">
+						<img id="imgPoke1">
+						<img id="imgPoke2">
+					</div>
+
+					<div class="container__battle--battleButtons" id="battleButtonsB">
+						<input type="button" class="btnAtaque" id="ataque1b" />
+						<input type="button" class="btnAtaque" id="ataque2b" />
+						<input type="button" class="btnAtaque" id="ataque3b" />
+					</div>
+				</div>
+				<p class="displayText" id="battle-text">Comienza la batalla, mira el indicador sobre el nombre del player para saber de quien es el turno</p>
+			</div>
+		</div>
+
+		<footer class="footer" id="footer">
+			<div class="footer__container">
+				
+				<section id="footer3">
+					<p>
+						<a class="footerlinks" href="https://github.com/antukung">
+							Mira mi repositorio BASADO EN OTRO REPOSITORIO GIT HUB
+							<img src="https://cdn.pixabay.com/photo/2016/07/21/00/38/pokemon-1531648__340.png" width="15" id="irGH">
+						</a>
+					</p>
+				</section>
+
+			</div>
+
+			<hr class ="line">
+			<p>
+				Entra a <a class="footerlinks" href="https://pokeapi.co/">The RESTful Pokémon API</a>
+				<br />Estrella y Fork al repositorio de GitHub | Cuentame por Twitter que te pareció
+				<br />.
+				<br /><small>El resto del contenido gráfico obtenido de rutas absolutas ocupa fuentes que permiten el libre uso de manera no comercial</small>
+			</p>
+		</footer>
+
+	    <script src="./source/js/pokemon.js"></script>
+	    <script src='./source/js/index.js'></script>
+	    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</body>
+</html>
